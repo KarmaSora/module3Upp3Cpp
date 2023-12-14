@@ -7,7 +7,7 @@ class Register
 {
 public:
 	Register();
-	Register(Register &other);
+	Register(const Register &other);
 
 	~Register();
 
@@ -15,6 +15,7 @@ public:
 	void addElite(const std::string &name, const std::string &gender, const std::string &club, int seasonCount);
 	int getParticipantCount();
 ;	bool searchAttendie(std::string name);
+	void dryClean();
 
 	bool operator=(Register &other);
 

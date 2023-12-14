@@ -6,26 +6,36 @@ Register::Register()
     attendentsPtr = new Participant*[cap];
 }
 
-Register::Register(Register& other)
+Register::Register(const Register &other)
 
 {
     if (this != &other) {
 
+
+        //tom ptr
+        dryClean();
+
+
         //copy
         this->nrOfAttendies = other.nrOfAttendies;
         this->cap = other.cap;
-        this->attendentsPtr = other.attendentsPtr;
+
+        //this->attendentsPtr = other.attendentsPtr;
+
+
+        for (int i = 0; i < nrOfAttendies; i++)
+        {
+            this->attendentsPtr[i] = other.attendentsPtr[i];
+
+        }
 
     }
 }
 
 Register::~Register()
 {
-    for (int i = 0; i < nrOfAttendies; i++) {
-        delete attendentsPtr[i];
+    dryClean();
 
-    }
-    delete[] attendentsPtr;
 }
 
 void Register::addRunner(const std::string& name, const std::string& gender, int age)
@@ -53,26 +63,41 @@ int Register::getParticipantCount()
 
 bool Register::searchAttendie(std::string name)
 {
-    bool status=false;
     for (int i = 0; i < this->nrOfAttendies; i++) {
         if (attendentsPtr[i]->getName() == name) {
-            status = true;
+            return true;
 
         }
     }
-    return status;
+    return false;
+}
+
+/*clears everything*/
+void Register::dryClean()
+{
+    for (int i = 0; i < nrOfAttendies; i++) {
+        delete attendentsPtr[i];
+
+    }
+    delete[] attendentsPtr;
 }
 
 bool Register::operator=(Register& other)
 {
-    for (int i = 0; i < this->nrOfAttendies; i++) {
-       delete this->attendentsPtr[i];
+    if (this != &other) {
+
+        dryClean();
+        this->nrOfAttendies = other.nrOfAttendies;
+        this->cap = other.cap;
+
+        for (int i = 0; i < nrOfAttendies; i++)
+        {
+            this->attendentsPtr[i] = other.attendentsPtr[i];
+
+        }
+
+        return true;
+    
     }
-    delete[] this->attendentsPtr;
-
-    this->nrOfAttendies = other.nrOfAttendies;
-    this->cap = other.cap;
-    this->attendentsPtr = other.attendentsPtr;
-
-    return true;
 }
+

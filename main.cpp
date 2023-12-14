@@ -7,11 +7,10 @@ int main() {
 	reg.addRunner("karma", "male", 33);
 	std::cout<<reg.getParticipantCount()<<std::endl;
 	
-	if (reg.searchAttendie("karmaa") == true) {
+	if (reg.searchAttendie("instantkarma") == true) {
 		std::cout<<"\n\nfound\n\n";
 	}
-	
-	
+		
 }
 
 
