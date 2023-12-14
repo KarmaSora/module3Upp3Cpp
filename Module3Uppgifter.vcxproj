@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Module3Uppgifter.cpp" />
+    <ClCompile Include="Elite.cpp" />
+    <ClCompile Include="Participant.cpp" />
+    <ClCompile Include="Runner.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Elite.h" />
+    <ClInclude Include="Participant.h" />
+    <ClInclude Include="Register.h" />
+    <ClInclude Include="Runner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
