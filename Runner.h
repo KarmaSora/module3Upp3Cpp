@@ -7,7 +7,7 @@ class Runner:public Participant
 public:
 	Runner();
 	Runner(std::string name, std::string gender,int age);
-	~Runner();
+	virtual ~Runner();
 	int getAge() const;
 	std::string toString() const override;
 private:

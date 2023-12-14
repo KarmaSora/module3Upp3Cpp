@@ -7,18 +7,21 @@ class Register
 {
 public:
 	Register();
+	Register(Register &other);
+
 	~Register();
 
 	void addRunner(const std::string &name, const std::string &gender, int age);
 	void addElite(const std::string &name, const std::string &gender, const std::string &club, int seasonCount);
 	int getParticipantCount();
+;	bool searchAttendie(std::string name);
 
-
+	bool operator=(Register &other);
 
 private:
 	int nrOfAttendies;
 	int cap;
-	Participant* attendentsPtr = nullptr;
+	Participant** attendentsPtr = nullptr;
 
 };
 

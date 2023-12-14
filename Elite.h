@@ -7,7 +7,7 @@ class Elite: public Participant
 public:
 	Elite();
 	Elite(std::string name , std::string gender,std::string club, int seasonCount );
-	~Elite();
+	virtual ~Elite();
 	
 	std::string toString() const override;
 	std::string getClub() const;

@@ -128,7 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Elite.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Participant.cpp" />
+    <ClCompile Include="Register.cpp" />
     <ClCompile Include="Runner.cpp" />
   </ItemGroup>
   <ItemGroup>

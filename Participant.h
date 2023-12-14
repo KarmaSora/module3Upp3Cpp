@@ -12,6 +12,8 @@ public:
 
 	virtual std::string toString() const =0;
 	bool contains(std::string str);
+	
+	std::string getName() const;
 private:
 	std::string name;
 	std::string gender;

@@ -21,8 +21,13 @@ std::string Participant::toString() const
 
 bool Participant::contains(std::string str)
 {   
-    if (toString().find(str)) {
+    if (this->toString().find(str)) {
         return true;
     }
     return false;
+}
+
+std::string Participant::getName() const
+{
+    return this->name;
 }
