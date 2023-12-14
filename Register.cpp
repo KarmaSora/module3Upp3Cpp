@@ -75,14 +75,14 @@ bool Register::searchAttendie(std::string name)
 /*clears everything*/
 void Register::dryClean()
 {
-    for (int i = 0; i < nrOfAttendies; i++) {
-        delete attendentsPtr[i];
+    for (int i = 0; i < this->nrOfAttendies; i++) {
+        delete this->attendentsPtr[i];
 
     }
-    delete[] attendentsPtr;
+    delete[] this->attendentsPtr;
 }
 
-bool Register::operator=(Register& other)
+Register& Register::operator=(Register& other)
 {
     if (this != &other) {
 
@@ -96,8 +96,9 @@ bool Register::operator=(Register& other)
 
         }
 
-        return true;
+        
     
     }
+    return *this;
 }
 

@@ -10,7 +10,12 @@ int main() {
 	if (reg.searchAttendie("instantkarma") == true) {
 		std::cout<<"\n\nfound\n\n";
 	}
-		
+
+	Register bReg;
+	bReg = reg;
+
+	std::cout<<bReg.getParticipantCount();
+	return 0;
 }
 
 

@@ -17,7 +17,7 @@ public:
 ;	bool searchAttendie(std::string name);
 	void dryClean();
 
-	bool operator=(Register &other);
+	Register& operator=(Register &other);
 
 private:
 	int nrOfAttendies;
