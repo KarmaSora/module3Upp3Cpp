@@ -8,9 +8,11 @@ public:
 	Elite();
 	Elite(std::string name , std::string gender,std::string club, int seasonCount );
 	virtual ~Elite();
+	Elite(const Elite& other);
 	
 	std::string toString() const override;
 	std::string getClub() const;
+	Elite* clone() const override;
 
 private:
 	std::string club;

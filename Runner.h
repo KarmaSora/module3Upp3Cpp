@@ -8,8 +8,10 @@ public:
 	Runner();
 	Runner(std::string name, std::string gender,int age);
 	virtual ~Runner();
+	Runner(const Runner& other);
 	int getAge() const;
 	std::string toString() const override;
+	Runner* clone() const override;
 private:
 	int age;
 };

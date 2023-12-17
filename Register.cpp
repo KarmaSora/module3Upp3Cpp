@@ -7,7 +7,6 @@ Register::Register()
 }
 
 Register::Register(const Register &other)
-
 {
     if (this != &other) {
 
@@ -80,22 +79,37 @@ void Register::dryClean()
 
     }
     delete[] this->attendentsPtr;
+    this->cap = 5;
+    this->nrOfAttendies = 0;
 }
 
-Register& Register::operator=(Register& other)
+Register& Register::operator=(const Register& other)
 {
     if (this != &other) {
-
         dryClean();
+
+            // Rest of the assignment logic...
+        this->attendentsPtr = new Participant * [other.cap] {nullptr};
+
         this->nrOfAttendies = other.nrOfAttendies;
         this->cap = other.cap;
 
-        for (int i = 0; i < nrOfAttendies; i++)
-        {
-            this->attendentsPtr[i] = other.attendentsPtr[i];
+        /*for (int i = 0; i < nrOfAttendies; i++){
+            this->attendentsPtr[i] = other.attendentsPtr[i]->clone();
+                
+        }*/
 
+        for (int i = 0; i < nrOfAttendies; i++) {
+            
+            Elite* elPtr = dynamic_cast<Elite*>(other.attendentsPtr[i]);
+            if(elPtr){
+            this->attendentsPtr[i] = new Elite(*elPtr);
+            }
+            Runner* runPtr = dynamic_cast<Runner*>(other.attendentsPtr[i]);
+             if(runPtr){
+                this->attendentsPtr[i] = new Runner(*runPtr);
+             }
         }
-
         
     
     }

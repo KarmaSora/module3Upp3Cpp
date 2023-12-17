@@ -12,9 +12,12 @@ int main() {
 	}
 
 	Register bReg;
-	bReg = reg;
+	bReg = reg; //fix this here
+
 
 	std::cout<<bReg.getParticipantCount();
+	
+
 	return 0;
 }
 

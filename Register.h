@@ -17,12 +17,12 @@ public:
 ;	bool searchAttendie(std::string name);
 	void dryClean();
 
-	Register& operator=(Register &other);
+	Register& operator=(const Register &other);
 
 private:
 	int nrOfAttendies;
 	int cap;
-	Participant** attendentsPtr = nullptr;
+	Participant** attendentsPtr;
 
 };
 

@@ -31,3 +31,8 @@ std::string Participant::getName() const
 {
     return this->name;
 }
+
+std::string Participant::getGender() const
+{
+    return this->gender;
+}
