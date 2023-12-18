@@ -12,8 +12,8 @@ Elite::Elite(std::string name, std::string gender, std::string club, int seasonC
 
 Elite::~Elite()
 {
-
 }
+
 
 Elite::Elite(const Elite& other)
 {

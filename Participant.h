@@ -8,7 +8,7 @@ class Participant
 public:
 	Participant();
 	Participant(std::string name, std::string gender);
-	~Participant();
+	virtual ~Participant();
 
 	virtual std::string toString() const =0;
 	bool contains(std::string str);

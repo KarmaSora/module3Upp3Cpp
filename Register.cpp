@@ -3,7 +3,7 @@
 Register::Register()
     :cap(5), nrOfAttendies(0)
 {
-    attendentsPtr = new Participant*[cap];
+    attendentsPtr = new Participant * [cap] {nullptr};
 }
 
 Register::Register(const Register &other)
@@ -33,13 +33,16 @@ Register::Register(const Register &other)
 
 Register::~Register()
 {
-    dryClean();
+    for (int i = 0; i < this->nrOfAttendies; i++) {
+        delete this->attendentsPtr[i];
 
+    }
+    delete[] this->attendentsPtr;
 }
 
 void Register::addRunner(const std::string& name, const std::string& gender, int age)
 {
-    if (this->nrOfAttendies == this->cap) {
+    if (this->nrOfAttendies >= this->cap) {
         this->cap++;
     }
     this->attendentsPtr[nrOfAttendies++] = new Runner(name, gender, age);
@@ -48,7 +51,7 @@ void Register::addRunner(const std::string& name, const std::string& gender, int
 
 void Register::addElite(const std::string& name, const std::string& gender, const std::string& club, int seasonCount)
 {
-    if (this->nrOfAttendies == this->cap) {
+    if (this->nrOfAttendies >= this->cap) {
         this->cap++;
     }
     this->attendentsPtr[nrOfAttendies++] = new Elite(name, gender, club, seasonCount);
@@ -115,4 +118,19 @@ Register& Register::operator=(const Register& other)
     }
     return *this;
 }
+
+std::string Register::toString()
+{
+    std::string toPrint;
+
+    for (int i = 0; i < nrOfAttendies; i++) {
+
+        toPrint += "\n" + this->attendentsPtr[i]->toString() + "\n";
+
+       }
+
+    return toPrint;
+}
+
+
 

@@ -18,6 +18,7 @@ public:
 	void dryClean();
 
 	Register& operator=(const Register &other);
+	std::string toString() ;
 
 private:
 	int nrOfAttendies;

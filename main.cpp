@@ -4,7 +4,10 @@ int main() {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	Register reg;
+	reg.addElite("Elit", "Heavenly", "Demonic",4);  //fix here
 	reg.addRunner("karma", "male", 33);
+	reg.addRunner("Sora", "Heavenly", 33);
+
 	std::cout<<reg.getParticipantCount()<<std::endl;
 	
 	if (reg.searchAttendie("instantkarma") == true) {
@@ -15,8 +18,10 @@ int main() {
 	bReg = reg; //fix this here
 
 
-	std::cout<<bReg.getParticipantCount();
-	
+	//std::cout<<bReg.getParticipantCount();
+	std::cout << bReg.toString();
+
+
 
 	return 0;
 }
